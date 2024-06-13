@@ -1,24 +1,30 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template_string, jsonify
 import pyodbc
 import pandas as pd
 
 app = Flask(__name__)
 
 # Database connection details
-server = 'your_server.database.windows.net'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
+server = 'bontha3001.database.windows.net'
+database = 'bontha3001'
+username = 'bontha3001'
+password = 'Arjunsuha1*'
 driver = '{ODBC Driver 17 for SQL Server}'
 
 # Connect to Azure SQL Database
 conn = pyodbc.connect(
-    'DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password
+    Server=tcp:bontha3001.database.windows.net,1433;Initial Catalog=bontha3001;Persist Security Info=False;User ID=bontha3001;Password=Arjunsuha1*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 )
+
+# Load HTML templates
+with open('index.html') as f:
+    index_html = f.read()
+with open('results.html') as f:
+    results_html = f.read()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template_string(index_html)
 
 @app.route('/earthquakes', methods=['POST'])
 def get_earthquakes():
@@ -30,7 +36,7 @@ def get_earthquakes():
         WHERE latitude BETWEEN ? AND ?
     """, (L - N, L + N))
     quakes = cursor.fetchall()
-    return render_template('results.html', quakes=quakes)
+    return render_template_string(results_html, quakes=quakes)
 
 @app.route('/delete_net', methods=['POST'])
 def delete_net():
