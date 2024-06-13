@@ -1,17 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earthquake Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
+    <div class="container">
+        <h1>Earthquake Data</h1>
+        <form action="/earthquakes" method="POST">
+            <label for="latitude">Latitude:</label>
+            <input type="text" id="latitude" name="latitude" required>
+            <label for="degrees">Degrees:</label>
+            <input type="text" id="degrees" name="degrees" required>
+            <button type="submit">Search</button>
+        </form>
+        <form action="/delete_net" method="POST">
+            <label for="net">Net:</label>
+            <input type="text" id="net" name="net" required>
+            <button type="submit">Delete</button>
+        </form>
+        <form action="/add_earthquake" method="POST">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
+            <label for="time">Time:</label>
+            <input type="text" id="time" name="time" required>
+            <label for="latitude">Latitude:</label>
+            <input type="text" id="latitude" name="latitude" required>
+            <label for="longitude">Longitude:</label>
+            <input type="text" id="longitude" name="longitude" required>
+            <label for="depth">Depth:</label>
+            <input type="text" id="depth" name="depth" required>
+            <label for="magnitude">Magnitude:</label>
+            <input type="text" id="magnitude" name="magnitude" required>
+            <label for="net">Net:</label>
+            <input type="text" id="net" name="net" required>
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place" required>
+            <button type="submit">Add Earthquake</button>
+        </form>
+        <form action="/modify_earthquake" method="POST">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
+            <label for="time">Time:</label>
+            <input type="text" id="time" name="time">
+            <label for="latitude">Latitude:</label>
+            <input type="text" id="latitude" name="latitude">
+            <label for="longitude">Longitude:</label>
+            <input type="text" id="longitude" name="longitude">
+            <label for="depth">Depth:</label>
+            <input type="text" id="depth" name="depth">
+            <label for="magnitude">Magnitude:</label>
+            <input type="text" id="magnitude" name="magnitude">
+            <label for="net">Net:</label>
+            <input type="text" id="net" name="net">
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place">
+            <button type="submit">Modify Earthquake</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
-
 </html>
