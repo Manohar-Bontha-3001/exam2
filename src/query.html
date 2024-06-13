@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Results</title>
+</head>
+<body>
+    <h1>Query Results</h1>
+    {% if earthquakes %}
+        <table border="1">
+            <tr>
+                <th>Datetime</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Magnitude</th>
+                <th>Place</th>
+            </tr>
+            {% for earthquake in earthquakes %}
+            <tr>
+                <td>{{ earthquake.Datetime }}</td>
+                <td>{{ earthquake.Latitude }}</td>
+                <td>{{ earthquake.Longitude }}</td>
+                <td>{{ earthquake.Magnitude }}</td>
+                <td>{{ earthquake.Place }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>
