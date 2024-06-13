@@ -4,35 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earthquake Data</title>
-    <link rel="stylesheet" href="/Users/bhavya/Desktop/exam2/src/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Upload Earthquake Data</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".csv" required>
-        <button type="submit">Upload</button>
-    </form>
-    <hr>
-    <h1>Query Earthquake Data</h1>
-    <a href="/query">Query Earthquake Data</a>
-    <hr>
-    <h1>Show Earthquakes by Latitude Range</h1>
-    <a href="/earthquakes_by_latitude">Show Earthquakes by Latitude Range</a>
-    <hr>
-    <h1>Count and Delete Earthquakes by Net Value</h1>
-    <a href="/delete_by_net">Delete Earthquakes by Net Value</a>
-    <hr>
-    <h1>Add New Earthquake Entry</h1>
-    <a href="/add_earthquake">Add New Earthquake Entry</a>
-    <hr>
-    <h1>Modify Earthquake Entry</h1>
-    <a href="/modify_earthquake">Modify Earthquake Entry</a>
-    <hr>
-    <h1>Count Large Earthquakes</h1>
-    <a href="/count">Count Earthquakes > 5.0 Magnitude</a>
-    <hr>
-    <h1>Large Earthquakes at Night</h1>
-    <a href="/night">Count Large Earthquakes (>4.0 Magnitude) at Night</a>
+    <div class="container">
+        <h1>Earthquake Data</h1>
+        <form action="/earthquakes" method="POST">
+            <label for="latitude">Latitude:</label>
+            <input type="text" id="latitude" name="latitude" required>
+            <label for="degrees">Degrees:</label>
+            <input type="text" id="degrees" name="degrees" required>
+            <button type="submit">Search</button>
+        </form>
+        <form action="/delete_net" method="POST">
+            <label for="net">Net:</label>
+            <input type="text" id="net" name="net" required>
+            <button type="submit">Delete</button>
+        </form>
+        <form action="/add_earthquake" method="POST">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
+            <label for="time">Time:</label>
+            <input type="text" id="time" name="time" required>
+            <label for="latitude">Latitude:</label>
+            <input type="text" id="latitude" name="latitude" required>
+            <label for="longitude">Longitude:</label>
+            <input type="text" id="longitude" name="longitude" required>
+            <label for="depth">Depth:</label>
+            <input type="text" id="depth" name="depth" required>
+            <label for="magnitude">Magnitude:</label>
+            <input type="text" id="magnitude" name="magnitude" required>
+            <label for="net">Net:</label>
+            <input type="text" id="net" name="net" required>
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place" required>
+            <button type="submit">Add Earthquake</button>
+        </form>
+        <form action="/modify_earthquake" method="POST">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
+            <label for="time">Time:</label>
+            <input type="text" id="time" name="time">
+            <label for="latitude">Latitude:</label>
+            <input type="text" id="latitude" name="latitude">
+            <label for="longitude">Longitude:</label>
+            <input type="text" id="longitude" name="longitude">
+            <label for="depth">Depth:</label>
+            <input type="text" id="depth" name="depth">
+            <label for="magnitude">Magnitude:</label>
+            <input type="text" id="magnitude" name="magnitude">
+            <label for="net">Net:</label>
+            <input type="text" id="net" name="net">
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place">
+            <button type="submit">Modify Earthquake</button>
+        </form>
+    </div>
     <script src="scripts.js"></script>
 </body>
 </html>

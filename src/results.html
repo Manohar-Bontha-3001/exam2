@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
+    <title>Earthquake Results</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Results</h1>
-    {% if earthquakes %}
+    <div class="container">
+        <h1>Earthquake Results</h1>
         <table border="1">
             <tr>
-                <th>Datetime</th>
+                <th>Time</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
                 <th>ID</th>
             </tr>
-            {% for earthquake in earthquakes %}
+            {% for quake in quakes %}
             <tr>
-                <td>{{ earthquake.datetime }}</td>
-                <td>{{ earthquake.latitude }}</td>
-                <td>{{ earthquake.longitude }}</td>
-                <td>{{ earthquake.id_earthquake }}</td>
+                <td>{{ quake.time }}</td>
+                <td>{{ quake.latitude }}</td>
+                <td>{{ quake.longitude }}</td>
+                <td>{{ quake.id }}</td>
             </tr>
             {% endfor %}
         </table>
-    {% else %}
-        <p>No results found.</p>
-    {% endif %}
+        <a href="/">Back to Home</a>
+    </div>
+    <script src="scripts.js"></script>
 </body>
 </html>
