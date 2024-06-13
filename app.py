@@ -12,8 +12,7 @@ password = 'Arjunsuha1*'
 driver = '{ODBC Driver 17 for SQL Server}'
 
 # Connect to Azure SQL Database
-conn = pyodbc.connect(
-    Server=tcp:bontha3001.database.windows.net,1433;Initial Catalog=bontha3001;Persist Security Info=False;User ID=bontha3001;Password=Arjunsuha1*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+conn = pyodbc.connect( Server=tcp:bontha3001.database.windows.net,1433;Initial Catalog=bontha3001;Persist Security Info=False;User ID=bontha3001;Password=Arjunsuha1*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 )
 
 # Load HTML templates
